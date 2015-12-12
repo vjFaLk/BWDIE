@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	{% include 'find/head.html' %}
+
+
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+
+
+	<style type="text/css">
+		input[type="text"]:focus{
+			border-color: rgba(0, 0, 0, 0.8);
+			box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 0px rgba(0, 0, 0, 0.6);
+			outline: 0 none;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<div class="col-md-1" >
+		</div>
+		<div class="col-md-10 text-center where-title">
+			<h1>Bhenchod, tell us where you are then</h1>
+			
+			
+		</br>
+		
+		
+		<div id="locationField" class="form-group">
+			<input id="searchTextField" type="text" size="50" class="form-control">
+		</div>
+
+
+
+		
+	</br>
+	<button class="btn btn-xlarge btn-danger" onclick="UpdateMap();">Chalo Bhenchod</button>
+</br>
+
+
+<script>
+	var input,autocomplete;
+	function initialize() {
+
+		input = document.getElementById('searchTextField');
+		autocomplete = new google.maps.places.Autocomplete(input);
+	}
+
+	function UpdateMap( )
+	{
+		 geocoder = new google.maps.Geocoder();    // instantiate a geocoder object
+		 
+		// Get the user's inputted address
+		var address = document.getElementById( "searchTextField" ).value;
+		
+		// Make asynchronous call to Google geocoding API
+		geocoder.geocode( { 'address': address }, function(results, status) {
+			var addr_type = results[0].types[0];	// type of address inputted that was geocoded
+			if ( status == google.maps.GeocoderStatus.OK ) 
+			{
+				console.log(results[0].geometry.location.lat());
+				console.log(results[0].geometry.location.lng());
+				window.history.pushState(null, "Location", "/food/"+results[0].geometry.location.lat()+","+results[0].geometry.location.lng());
+				location.reload();
+				
+
+			}
+			else     
+				console.log("Geocode was not successful for the following reason: " + status);        
+		});
+	}
+	google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<div class="col-md-1" >
+	
+</div>
+
+
+
+
+
+</div>
+</body>
+{% include 'find/footer.html' %}
+</html>
