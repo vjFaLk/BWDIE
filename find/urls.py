@@ -3,5 +3,5 @@ from find import views
 
 
 urlpatterns = [
-    url(r'^$', views.showHome, name='index'),
+    url(r'^$', views.index_page, name='index'),
 ]

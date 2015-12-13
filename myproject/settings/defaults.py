@@ -6,9 +6,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
-ALLOWED_HOSTS = ['.bwdie.com', '.bwdie.inprogress.in']
+ALLOWED_HOSTS = ['*']
 
-ADMINS = ('Valmik J', 'valmik2k2@gmail.com')
+ADMINS = ('')
 
 # Application definition
 

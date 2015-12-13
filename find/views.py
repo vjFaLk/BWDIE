@@ -1,13 +1,12 @@
 from django.shortcuts import render
 from find.services import *
-# Create your views here.
 
 
-def showHome(request):
+def index_page(request):
     return render(request, 'find/index.html')
 
 
-def getRestaurants(request, location):
+def get_food(request, location):
     coordinates = location.split(',')
     latitude = coordinates[0]
     longitude = coordinates[1]
@@ -17,18 +16,18 @@ def getRestaurants(request, location):
                                                      'longi': longitude})
 
 
-def getCafe(request, location):
+def get_cafes(request, location):
     coordinates = location.split(',')
     latitude = coordinates[0]
     longitude = coordinates[1]
-    cafe_id = 1 
+    cafe_id = 1
     cafe_list = get_restaurants(latitude, longitude, '', cafe_id)
     return render(request, 'find/cafe.html', {'cafe_list': cafe_list,
                                               'lat': latitude,
                                               'longi': longitude})
 
 
-def getDrinks(request, location):
+def get_drinks(request, location):
     coordinates = location.split(',')
     latitude = coordinates[0]
     longitude = coordinates[1]
@@ -39,7 +38,7 @@ def getDrinks(request, location):
                                                           'longi': longitude})
 
 
-def getDesserts(request, location):
+def get_desserts(request, location):
     coordinates = location.split(',')
     latitude = coordinates[0]
     longitude = coordinates[1]
@@ -50,5 +49,5 @@ def getDesserts(request, location):
                                                   'longi': longitude})
 
 
-def wrongLocation(request):
+def wrong_location(request):
     return render(request, 'find/wrongLocation.html')

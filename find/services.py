@@ -22,7 +22,7 @@ def get_restaurants(latitude, longitude, cuisine, establishment_type):
     }
     # The requests package will generate a request with the required data
     # The URL looks like :
-    # https://developers.zomato.com/api/v2.1/location_details?entity_type=subzone&entity_id=2207
+    # https://developers.zomato.com/api/v2.1/search?lat=2.4937483&lon=2.43234323&sort=rating...
     r = requests.get(
         url=url, headers=header, params=params)
 

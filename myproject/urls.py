@@ -18,15 +18,15 @@ from find import views
 urlpatterns = [
     url(r'^$', include('find.urls', namespace="find")),
     url(r'^food\/(?P<location>/*.+)$',
-        views.getRestaurants, name='restaurant'),
+        views.get_food, name='restaurant'),
     url(r'^cafe\/(?P<location>/*.+)$',
-        views.getCafe, name='cafe'),
+        views.get_cafes, name='cafe'),
     url(r'^drink\/(?P<location>/*.+)$',
-        views.getDrinks, name='drink'),
+        views.get_drinks, name='drink'),
     url(r'^dessert\/(?P<location>/*.+)$',
-        views.getDesserts, name='dessert'),
+        views.get_desserts, name='dessert'),
     url(r'^wronglocation$',
-        views.wrongLocation, name='wrongLoc'),
+        views.wrong_location, name='wrong_location'),
 
 
 ]
