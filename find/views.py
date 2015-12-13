@@ -27,17 +27,6 @@ def get_cafes(request, location):
                                               'longi': longitude})
 
 
-def get_drinks(request, location):
-    coordinates = location.split(',')
-    latitude = coordinates[0]
-    longitude = coordinates[1]
-    drinks_id = 5
-    drinks_list = get_restaurants(latitude, longitude, '', drinks_id)
-    return render(request, 'find/specific_cuisine.html', {'drinks_list': drinks_list,
-                                                          'lat': latitude,
-                                                          'longi': longitude})
-
-
 def get_desserts(request, location):
     coordinates = location.split(',')
     latitude = coordinates[0]
