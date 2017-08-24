@@ -4,6 +4,10 @@ import requests
 def get_restaurants(latitude, longitude, cuisine, establishment_type):
 
     url = 'https://developers.zomato.com/api/v2.1/search'
+    
+        vari = "this is a borked variable"
+        
+    VariableNew = []
 
     # Parameters are basically data sent with the URL
     params = {'lat': latitude,
